@@ -106,19 +106,6 @@ def main(argv):
                 #
                 mca.send(publicKey.encode())
 
-                # send a random DH blind key
-                #
-                g = 2
-                p = number.getPrime(2048)
-                key = randint(1,int(p-1))
-                bKey = pow(g,key,p)
-                pKey = RSA.importKey(publicKey)
-                cipher = PKCS1_OAEP.new(pKey)
-                cipherText = cipher.encrypt(str(bKey).encode())
-                print(type(cipherText))
-                print(len(type(cipherText)))
-                mca.send(cipherText)
-
                 X = 0
 
                 # serialize the tree
