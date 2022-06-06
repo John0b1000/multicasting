@@ -2,7 +2,7 @@
 #
 
 # version: 1
-# v0: erialize a tree object and send it in chunks via multicasting
+# v0: serialize a tree object and send it in chunks via multicasting
 # v1: create a single Multicast class
 #
 
