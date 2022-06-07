@@ -8,7 +8,7 @@
 #
 
 # usage:
-#  Terminal 1: python3 mucast_v2.py --iface='10.150.0.72' --join-mcast-groups '224.1.1.2' --bind-group '224.1.1.2' --type rec
+#  Terminal 1: python3 mucast_v2.py --iface='10.150.0.73' --join-mcast-groups '224.1.1.2' --bind-group '224.1.1.2' --type rec
 #  Terminal 2: python3 mucast_v2.py --mcast-group '224.1.1.2'
 
 # import modules 
@@ -16,23 +16,6 @@
 import sys
 import argparse
 from MulticastAgent import MulticastAgent
-
-# function: generateRSAkeys()
-#
-def generateRSAkeys():
-    key = RSA.generate(2048)
-    pem = key.export_key(format='PEM', passphrase='dees')
-    f = open('private.pem', 'wb')
-    f.write(pem)
-    f.close()
-    pub = key.publickey()
-    pub_pem = pub.export_key(format='PEM')
-    f = open('public.pem', 'wb')
-    f.write(pub_pem)
-    f.close()
-
-#
-# end function: generateRSAkeys()
 
 # function: main
 #
@@ -85,13 +68,13 @@ def main(argv):
 
         # take input from the command line 
         #
-        X = 1
-        while X:
+        while True:
             try:
                 
                 # send a message
                 #
-                mca.send("Hello, multicast group!")
+                user_input = input("Enter your message here: ")
+                mca.send(user_input)
                 
             except KeyboardInterrupt:
 
