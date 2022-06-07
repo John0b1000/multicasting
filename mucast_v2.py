@@ -1,10 +1,10 @@
 # file: mucast.py
 #
 
-# version: 1
+# version: 2
 # v0: serialize a tree object and send it in chunks via multicasting
 # v1: create a single Multicast class
-# v2: organize files and try to send an RSA key using DH scheme
+# v2: organize files
 #
 
 # usage:
