@@ -91,7 +91,7 @@ def main(argv):
                 
                 # send a message
                 #
-                mca.send("Hello, multicast group!"
+                mca.send("Hello, multicast group!")
                 
             except KeyboardInterrupt:
 
