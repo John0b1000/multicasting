@@ -1,6 +1,8 @@
 # file: MulticastAgent.py
 #
 
+# a portable multicast class that can be used to send and receive messages
+
 # import modules 
 #
 import socket
