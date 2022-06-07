@@ -8,7 +8,7 @@
 #
 
 # usage:
-#  Terminal 1: python3 mucast_v2.py --iface='10.108.34.3' --join-mcast-groups '224.1.1.2' --bind-group '224.1.1.2' --type rec
+#  Terminal 1: python3 mucast_v2.py --iface='10.150.0.72' --join-mcast-groups '224.1.1.2' --bind-group '224.1.1.2' --type rec
 #  Terminal 2: python3 mucast_v2.py --mcast-group '224.1.1.2'
 
 # import modules 
@@ -16,14 +16,6 @@
 import sys
 import argparse
 from MulticastAgent import MulticastAgent
-from Crypto.PublicKey import RSA
-from Crypto.Cipher import AES, PKCS1_OAEP
-from Crypto.Util import Padding
-from Crypto.Random import get_random_bytes
-from Crypto.Random.random import getrandbits
-from hashlib import sha256
-from Crypto.Random.random import randint
-from Crypto.Util import number
 
 # function: generateRSAkeys()
 #
@@ -96,22 +88,11 @@ def main(argv):
         X = 1
         while X:
             try:
-
-                # send an RSA public key
+                
+                # send a message
                 #
-                generateRSAkeys()
-                publicKey = open('public.pem').read()
-
-                # test the send method
-                #
-                mca.send(publicKey.encode())
-
-                X = 0
-
-                # serialize the tree
-                #
-                #serial_data = pickle.dumps(tree)
-                #print(serial_data)
+                mca.send("Hello, multicast group!"
+                
             except KeyboardInterrupt:
 
                 # exit gracefully
